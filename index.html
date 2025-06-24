@@ -10,16 +10,14 @@
   <header>
     <h1>Péna Ivann</h1>
     <p>Développeur Informatique</p>
-    <button id="toggle-theme" aria-label="Changer thème">Mode sombre</button>
-    
+    <button id="toggle-theme">🌙 Mode Sombre</button>
   </header>
 
   <main>
     <section id="about">
-        <h2>À propos</h2>
-        <p>Je m'appelle Péna Ivann, diplômé du BTS SIO option SLAM en 2025. Je poursuis mes études en Bachelor DevOps à l'EPSI dès septembre 2025 pour approfondir mes compétences.</p>
-      </section>
-      
+      <h2>À propos</h2>
+      <p>Je m'appelle Péna Ivann, diplômé du BTS SIO option SLAM en 2025. Je poursuis mes études en Bachelor DevOps à l'EPSI dès septembre 2025 pour approfondir mes compétences.</p>
+    </section>
 
     <section id="skills">
       <h2>Compétences techniques</h2>
@@ -41,48 +39,35 @@
     <section id="projects">
       <h2>Projets réalisés</h2>
       <div class="project">
-        <h3><a href="https://cleanlittledog.com" target="_blank">cleanlittledog.com</a></h3>
+        <h3><a href="https://cleanlittledog.com" target="_blank" rel="noopener noreferrer">cleanlittledog.com</a></h3>
         <p>Création d’un site web complet pour un service de toilettage canin : design, intégration et mise en ligne.</p>
       </div>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>📧 <a href="mailto:pena.ivann03@gmail.com">pena.ivann03@gmail.com</a></p>
-        <p>
-          📄 <a href="cv-pena-ivann.pdf" download class="btn">Télécharger mon CV</a>
-        </p>
-      </section>
+      <h2>Contact</h2>
+      <p>📧 <a href="mailto:pena.ivann03@gmail.com">pena.ivann03@gmail.com</a></p>
+      <p>
+        📄 <a href="cv-pena-ivann.pdf" download class="btn">Télécharger mon CV</a>
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Péna Ivann</p>
   </footer>
+
   <script>
     const toggleBtn = document.getElementById('toggle-theme');
-  
-    // Fonction d'initialisation du thème au chargement
-    function initTheme() {
-      const theme = localStorage.getItem('theme');
-      if(theme === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleBtn.textContent = 'Mode clair';
-      } else {
-        toggleBtn.textContent = 'Mode sombre';
-      }
-    }
-  
-    initTheme();
-  
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      toggleBtn.textContent = isDark ? 'Mode clair' : 'Mode sombre';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      if(document.body.classList.contains('dark-mode')){
+        toggleBtn.textContent = '☀️ Mode Clair';
+      } else {
+        toggleBtn.textContent = '🌙 Mode Sombre';
+      }
     });
   </script>
-  
-
-
 </body>
 </html>
