@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Péna Ivann – Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Péna Ivann</h1>
+    <p>Développeur Informatique</p>
+    <button id="toggle-theme" aria-label="Changer thème">Mode sombre</button>
+    
+  </header>
+
+  <main>
+    <section id="about">
+        <h2>À propos</h2>
+        <p>Je m'appelle Péna Ivann, diplômé du BTS SIO option SLAM en 2025. Je poursuis mes études en Bachelor DevOps à l'EPSI dès septembre 2025 pour approfondir mes compétences.</p>
+      </section>
+      
+
+    <section id="skills">
+      <h2>Compétences techniques</h2>
+      <ul>
+        <li>HTML / CSS / JavaScript</li>
+        <li>PHP</li>
+        <li>PHPMyAdmin / MySQL</li>
+        <li>Symfony (en local ou sur Render)</li>
+        <li>Git / GitHub</li>
+      </ul>
+
+      <h2>Compétences transversales</h2>
+      <ul>
+        <li>Travail d'équipe</li>
+        <li>Communication</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projets réalisés</h2>
+      <div class="project">
+        <h3><a href="https://cleanlittledog.com" target="_blank">cleanlittledog.com</a></h3>
+        <p>Création d’un site web complet pour un service de toilettage canin : design, intégration et mise en ligne.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>📧 <a href="mailto:pena.ivann03@gmail.com">pena.ivann03@gmail.com</a></p>
+        <p>
+          📄 <a href="cv-pena-ivann.pdf" download class="btn">Télécharger mon CV</a>
+        </p>
+      </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Péna Ivann</p>
+  </footer>
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+  
+    // Fonction d'initialisation du thème au chargement
+    function initTheme() {
+      const theme = localStorage.getItem('theme');
+      if(theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleBtn.textContent = 'Mode clair';
+      } else {
+        toggleBtn.textContent = 'Mode sombre';
+      }
+    }
+  
+    initTheme();
+  
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = isDark ? 'Mode clair' : 'Mode sombre';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+  
+
+
+</body>
+</html>
