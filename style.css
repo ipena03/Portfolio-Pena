@@ -63,6 +63,13 @@
     flex-shrink: 0;
     user-select: none;
   }
+
+
+  #toggle-theme {
+  width: 170px; /* ou une largeur fixe adaptée */
+  text-align: center;
+}
+
   
   #toggle-theme:hover {
     background-color: #999;

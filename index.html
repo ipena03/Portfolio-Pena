@@ -6,7 +6,6 @@
   <title>Péna Ivann – Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -48,57 +47,72 @@
       <h2>Projets réalisés</h2>
       <div class="project">
         <h3><a href="https://cleanlittledog.com" target="_blank" rel="noopener noreferrer">cleanlittledog.com</a></h3>
-        <p>Création d’un site web complet pour un service de toilettage canin : design, intégration et mise en ligne.</p>
-      </div>
+<p>
+      Développement complet d’un site web pour un service de toilettage canin local, réalisé avec le framework <strong>Symfony</strong>. Ce projet comprend la conception, l’intégration responsive, et la mise en production.
+    </p>
+    <p>
+      J’ai conçu une interface utilisateur intuitive et moderne, optimisée pour tous types d’appareils (mobile, tablette, desktop), avec une navigation fluide et claire.
+    </p>
+    <p>
+      Le site propose plusieurs fonctionnalités essentielles, comme la présentation des services, une galerie photos, et un formulaire de contact sécurisé.
+    </p>
+    <p>
+      Grâce à Symfony, j’ai pu gérer efficacement la structure MVC, la sécurité, et l’envoi d’emails, tout en assurant la maintenabilité et l’évolutivité du site.
+    </p>
+    <p>
+      Ce projet a renforcé mes compétences en développement web backend et frontend, ainsi que ma capacité à travailler en méthodologie agile et à répondre aux besoins clients.
+    </p>      </div>
     </section>
 
     <section id="contact" class="section fade-in">
       <h2>Contact</h2>
 
-      <p>
-        N'hésitez pas à me contacter pour toute question ou demande d'information.
-      </p>
-      <p>📧 <a href="mailto:pena.ivann03@gmail.com">pena.ivann03@gmail.com</a></p>
+     <p> Vous pouvez me contacter via le formulaire ci-dessous ou directement via mon mail :</p> <p><a href="mailto:pena.ivann03@gmail.com"></a>pena.ivann03@gmail.com</a></p>
 
-      <BR>
-        <div class="form-container">
-            <form class="contact-form">
-              <div class="form-row name-row">
-                <div class="form-group">
-                  <label class="form-label" for="prenom">Prénom</label>
-                  <input class="form-control" type="text" id="prenom" name="prenom" placeholder="Votre prénom">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="nom">Nom</label>
-                  <input class="form-control" type="text" id="nom" name="nom" placeholder="Votre nom">
-                </div>
-              </div>
+
+      <br>
+
+      <div class="form-container">
+
+        <form id="contact-form" class="contact-form" method="POST" action="https://formspree.io/f/mgvynjlo">
           
-              <div class="form-row contact-row">
-                <div class="form-group">
-                  <label class="form-label" for="telephone">Téléphone</label>
-                  <input class="form-control" type="tel" id="telephone" name="telephone" placeholder="Votre téléphone">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Email</label>
-                  <input class="form-control" type="email" id="email" name="email" placeholder="Votre email">
-                </div>
-              </div>
-          
-              <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-control form-control-message" id="message" name="message" placeholder="Votre message"></textarea>
-              </div>
-          
-              <button type="submit" class="btn-primary">Envoyer</button>
-            </form>
+          <div class="form-row name-row">
+            <div class="form-group">
+              <label class="form-label" for="prenom">Prénom</label>
+              <input class="form-control" type="text" id="prenom" name="prenom" placeholder="Votre prénom" required autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="nom">Nom</label>
+              <input class="form-control" type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="off">
+            </div>
           </div>
 
-      <BR>
+          <div class="form-row contact-row">
+            <div class="form-group">
+              <label class="form-label" for="telephone">Téléphone</label>
+              <input class="form-control" type="tel" id="telephone" name="telephone" placeholder="Votre téléphone" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-control" type="email" id="email" name="email" placeholder="Votre email" required autocomplete="off">
+            </div>
+          </div>
 
-      <p>
-        📄 <a href="cv-pena-ivann.pdf" download class="btn">Télécharger mon CV</a>
-      </p>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control form-control-message" id="message" name="message" placeholder="Votre message" required autocomplete="off"></textarea>
+          </div>
+
+          <!-- Champ anti-spam (honeypot) -->
+          <input type="text" name="_gotcha" style="display:none">
+
+          <button type="submit" class="btn-primary">Envoyer</button>
+        </form>
+      </div>
+
+      <br>
+
+      <p>📄 <a href="cv-pena-ivann.pdf" download class="btn">Télécharger mon CV</a></p>
     </section>
   </main>
 
@@ -106,7 +120,53 @@
     <p>© 2025 Péna Ivann</p>
   </footer>
 
-  <!-- On lie le fichier JS externe ici -->
-  <script src="script.js"></script>
+  <script>
+    // Toggle dark mode et animation rotation bouton
+    const toggleBtn = document.getElementById('toggle-theme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      if(document.body.classList.contains('dark-mode')){
+        toggleBtn.textContent = '☀️ Mode Clair';
+      } else {
+        toggleBtn.textContent = '🌙 Mode Sombre';
+      }
+
+      toggleBtn.classList.add('rotate');
+      setTimeout(() => {
+        toggleBtn.classList.remove('rotate');
+      }, 600);
+    });
+
+    // Fade-in au scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Vider le formulaire à l’arrivée sur la page (pour éviter remplissage automatique navigateur)
+    window.addEventListener('pageshow', () => {
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>

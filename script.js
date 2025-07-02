@@ -39,3 +39,34 @@ const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll
 faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
+
+// Envoi du formulaire avec fetch vers Formspree
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mgvynjlo", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        alert("✅ Votre message a bien été envoyé !");
+        contactForm.reset(); // Vide le formulaire
+      } else {
+        alert("❌ Une erreur est survenue lors de l'envoi.");
+      }
+    } catch (error) {
+      alert("❌ Une erreur réseau est survenue.");
+      console.error(error);
+    }
+  });
+}
